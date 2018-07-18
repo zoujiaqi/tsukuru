@@ -9,6 +9,8 @@ Coded in Python and has Design / Fabrication / Experience features built-in.
 
 To Run the Python demo: Install Pygame and run Tsukuru.py
 
+Follow the Pygame Wiki Page for installation:https://www.pygame.org/wiki/GettingStarted
+
 Tsukuru App, developed at #NewHuamnHACKS @ HP Inc. Vancouver, Washington 2018
 Author: Jiaqi Zou (jiaqi.zou@hp.com)
 ![alt text](https://github.com/zoujiaqi/tsukuru/blob/master/thumbnail/preview.png?raw=true)
