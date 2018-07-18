@@ -1,4 +1,4 @@
-# tsukuru
+# Tsukuru: Reinvent the Maker Experience
 The following repository for Tsukuru is a Nintendo Switch emulator that drives HP CNC printer/cutter.
 
 The software is a demo version of the User Interface that would eventually go onto Nintendo Switch's console.
