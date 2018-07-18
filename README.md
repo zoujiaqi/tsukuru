@@ -9,4 +9,4 @@ Coded in Python and has Design / Fabrication / Experience features built-in.
 
 Tsukuru App, developed at #NewHuamnHACKS @ HP Inc. Vancouver, Washington 2018
 Author: Jiaqi Zou (jiaqi.zou@hp.com)
-![alt text](https://github.com/ksingarajah/genesis/blob/master/thumbnail/frontpage.png?raw=true)
+![alt text](https://github.com/zoujiaqi/tsukuru/blob/master/thumbnail/preview.png?raw=true)
