@@ -7,6 +7,8 @@ API usage: Incorporates HP Pixel Intelligence, HP Z-Camera, pygame, Unity game e
 
 Coded in Python and has Design / Fabrication / Experience features built-in.
 
+To Run the Python demo: Install Pygame and run Tsukuru.py
+
 Tsukuru App, developed at #NewHuamnHACKS @ HP Inc. Vancouver, Washington 2018
 Author: Jiaqi Zou (jiaqi.zou@hp.com)
 ![alt text](https://github.com/zoujiaqi/tsukuru/blob/master/thumbnail/preview.png?raw=true)
