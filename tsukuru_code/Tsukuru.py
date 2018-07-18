@@ -52,10 +52,10 @@ class introScreen:
 
 
         #program font panel
-        self.font = pygame.font.SysFont("Impact", 20)
-        self.smallfont = pygame.font.SysFont("Impact", 25)
-        self.medfont = pygame.font.SysFont("Impact", 50)
-        self.largefont = pygame.font.SysFont("Impact", 85)
+        self.font = pygame.font.SysFont("Bukhari Script", 20)
+        self.smallfont = pygame.font.SysFont("Bukhari Script", 25)
+        self.medfont = pygame.font.SysFont("Bukhari Script", 50)
+        self.largefont = pygame.font.SysFont("Bukhari Script", 85)
 
         #program mouse control panel
         self.QUIT = False
@@ -76,6 +76,8 @@ class introScreen:
         #Setup the pygame screen
         self.screen_width = 1280
         self.screen_height = 720
+        # self.screen_width = 375
+        # self.screen_height = 667
         self.screen_size = (self.screen_width, self.screen_height)    
         self.screen = pygame.display.set_mode(self.screen_size)
 
@@ -85,16 +87,17 @@ class introScreen:
 
         # Load the image source for buttons
         self.bg = pygame.image.load("pics/intro_bg.png")
+        self.bg_clean = pygame.image.load("pics/bg_clean.png")
         self.design_icon = pygame.image.load("pics/design_icon.png")
         self.fab_icon = pygame.image.load("pics/fab_icon.png")
         self.exp_icon = pygame.image.load("pics/exp_icon.png")
-        self.backicon = pygame.image.load("image/back.png")
+        self.back_icon = pygame.image.load("pics/back.png")
 
         # Make all the buttons objects 
         self.designbutton = pygame.transform.scale(self.design_icon, (130,130))
         self.fabbutton = pygame.transform.scale(self.fab_icon, (135,135))
         self.expbutton = pygame.transform.scale(self.exp_icon, (128,128))
-        self.back_button = pygame.transform.scale(self.backicon,(80,80))
+        self.back_button = pygame.transform.scale(self.back_icon,(40,40))
 
     def record_audio(self):
         
@@ -190,12 +193,12 @@ class introScreen:
 
                 if action == "design":
                     self.designScreen()
-                    print("This is design Mode")
+                    print("This is Design Mode")
 
                 if action == "fab":
                     self.fabricationScreen()
                     
-                    print("This is fabrication Mode")
+                    print("This is Fabrication Mode")
 
                 if action == "exp":
                     self.experienceScreen()
@@ -260,13 +263,16 @@ class introScreen:
                         quit()
 
 
-            self.screen.blit(self.bg, (0,0))
+            self.screen.blit(self.bg_clean, (0,0))     
             
-            self.button("back", 75,588,46,46, self.WINE, self.light_wine, action="backFromDesign")
-            self.button("Speak", 73,490,46,46, self.CYAN, self.light_cyan, action="speak")      
+            self.button("back", 155,645,150,150, self.WINE, self.light_wine, action="backFromDesign")
+            # self.button("Speak", 73,490,46,46, self.CYAN, self.light_cyan, action="speak")      
 
-            listenScreenText = self.largefont.render("Listen Mode",True, self.WHITE)
-            self.screen.blit(listenScreenText, [300,50])
+            listenScreenText = self.largefont.render("Design Mode",True, self.WHITE)
+
+            self.screen.blit(self.back_icon, (35, 528))
+
+            self.screen.blit(listenScreenText, [400,30])
             pygame.display.update()
 
             self.clock.tick(15)
@@ -282,46 +288,23 @@ class introScreen:
                         pygame.quit()
                         quit()
             
-            self.screen.blit(self.bg, (0,0))
-
-            self.button("back", 75,588,46,46, self.WINE, self.light_wine, action="backFromFab")
-            self.screen.blit(self.back_button, (35, 548))
+            self.screen.blit(self.bg_clean, (0,0))     
             
-            self.button("Listen", 75,490,46,46, self.COFFEE, self.light_coffee, action="listen")
-            self.screen.blit(self.listenbutton_small, (28, 442))
+            self.button("back", 155,645,150,150, self.WINE, self.light_wine, action="backFromFab")
+            # self.button("Speak", 73,490,46,46, self.CYAN, self.light_cyan, action="speak")      
 
-            speakScreenText = self.largefont.render("Speech Mode",True, self.WHITE)
-            self.screen.blit(speakScreenText, [300,50])
-            
-            self.button("Start", 320,590,46,46, self.WINE, self.light_wine, action="startspeech")
-            self.screen.blit(self.speechicon,[297,565])
-            self.button("End", 670,590,46,46, self.CYAN, self.light_cyan, action="endspeech") 
-            self.screen.blit(self.stopicon, [647, 565])
+            listenScreenText = self.largefont.render("Fabrication Mode",True, self.WHITE)
 
+            self.screen.blit(self.back_icon, (35, 528))
 
-
-            if(self.isSpeaking == False):
-                starterText = self.smallfont.render("Please hit Record to start speech recognition. Press stop when finished.", True, self.WHITE)
-                self.screen.blit(starterText,[100,150]) 
-
-            recognizingText = self.smallfont.render("", True, self.WHITE)
-            if(self.isSpeaking == True):
-                recognizingText = self.smallfont.render("Recognizing your speech...", True, self.WHITE)
-                self.screen.blit(recognizingText,[100,200]) 
-
-            recognitionText = self.medfont.render(self.recogText, True, self.WHITE)
-            self.screen.blit(recognitionText,[100,300]) 
-
-            if(self.isEndSpeech == True):
-                endText = self.smallfont.render("Pausing your speech...", True, self.WHITE)
-                self.screen.blit(recognizingText,[100,200]) 
+            self.screen.blit(listenScreenText, [300,30])
             
             pygame.display.update()
 
             self.clock.tick(15)
 
     # Experience Modes is for user to see what is capable of Nintendo Switch 
-    def ExperienceScreen(self):
+    def experienceScreen(self):
         gcont = True
 
         while gcont:
@@ -331,10 +314,16 @@ class introScreen:
                         pygame.quit()
                         quit()
 
-            self.screen.blit(self.instruction, [0,0])
+            self.screen.blit(self.bg_clean, (0,0))     
+            
+            self.button("back", 155,645,150,150, self.WINE, self.light_wine, action="backFromExp")
+            # self.button("Speak", 73,490,46,46, self.CYAN, self.light_cyan, action="speak")      
 
-            self.button("back", 75,588,46,46, self.WINE, self.light_wine, action="backFromExp")
-            self.screen.blit(self.back_button, (35, 548))
+            listenScreenText = self.largefont.render("Experience Mode",True, self.WHITE)
+
+            self.screen.blit(self.back_icon, (35, 528))
+
+            self.screen.blit(listenScreenText, [300,30])
 
             
 
